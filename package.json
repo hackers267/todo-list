@@ -1,0 +1,24 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vite serve",
+    "re:build": "rescript",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "rescript": "^9.1.4"
+  },
+  "devDependencies": {
+    "@rescript/react": "^0.10.3",
+    "@vitejs/plugin-react": "^1.3.2",
+    "vite": "^2.9.9"
+  }
+}

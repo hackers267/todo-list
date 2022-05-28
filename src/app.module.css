@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #0082ff;
+    --line-height: 1.5175;
+    --base-size: 14px;
+    --danger-color: orangered;
+}
+
+.list {
+    padding: 16px 24px;
+    border: 1px dashed var(--primary-color);
+}
+
+.item {
+    border-bottom: 1px solid var(--primary-color);
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    padding: 8px 12px;
+    line-height: var(--line-height);
+}
+
+.text {
+    flex-grow: 1;
+    word-break: break-all;
+}
+
+.del {
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: var(--danger-color);
+    color: #fff;
+    border-radius: 4px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.add {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    justify-content: center;
+}
+
+.input {
+    outline: none;
+    padding: 8px 16px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: var(--base-size);
+}
+
+.btn {
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    border: 1px solid var(--primary-color);
+    color: #fff;
+    font-size: var(--base-size);
+    border-radius: 4px;
+}
+
+.mask{
+    background-color: rgba(0,0,0,.75);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+.modal{
+    background-color: #fff;
+    padding: 8px 16px;
+    max-width: 80%;
+    align-self: center;
+    border-radius: 4px;
+}
+
+.btnGroup {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
