@@ -22,6 +22,8 @@
 .text {
     flex-grow: 1;
     word-break: break-all;
+    line-height: var(--line-height);
+    align-self: flex-end;
 }
 
 .del {
@@ -57,10 +59,11 @@
     color: #fff;
     font-size: var(--base-size);
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .mask{
-    background-color: rgba(0,0,0,.75);
+    background-color: rgba(0,0,0,.45);
     position: fixed;
     left: 0;
     right: 0;

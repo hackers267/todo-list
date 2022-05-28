@@ -4,6 +4,13 @@ type item = {
   text: string,
 }
 
+module Button = {
+  @react.component
+  let make = (~children, ~onClick) => {
+    <button className={styles["btn"]} onClick> children </button>
+  }
+}
+
 module Add = {
   open React
   open ReactEvent
@@ -15,7 +22,10 @@ module Add = {
     }
     let (value, setValue) = useState(_ => text)
     let submit = _ => {
-      add(value)
+      if value != "" {
+        add(value)
+        setValue(_ => "")
+      }
     }
     let onChange = evt => {
       let value = Form.target(evt)["value"]
@@ -23,7 +33,7 @@ module Add = {
     }
     <div className={styles["add"]}>
       <input className={styles["input"]} value onChange />
-      <button className={styles["btn"]} onClick={_ => submit()}> {`添加`->React.string} </button>
+      <Button onClick={_ => submit()}> {`添加`->React.string} </Button>
     </div>
   }
 }
@@ -67,13 +77,6 @@ module Input = {
   }
 }
 
-module Button = {
-  @react.component
-  let make = (~children, ~onClick) => {
-    <button className={styles["btn"]} onClick> children </button>
-  }
-}
-
 module Update = {
   open React
   @react.component
@@ -109,7 +112,10 @@ module Update = {
 }
 module List = {
   @react.component
-  let make = (~todos, ~setTodos) =>
+  let make = (~todos, ~setTodos) => {
+    let del = id => {
+      setTodos(prev => prev->Belt.Array.keep(v => v.id != id))
+    }
     <div className={styles["list"]}>
       {todos
       ->Belt.Array.map(v => {
@@ -118,12 +124,13 @@ module List = {
           <span className={styles["text"]}> {text->React.string} </span>
           <span className={styles["btnGroup"]}>
             <Update text id setTodos />
-            <span className={styles["del"]}> {`删除`->React.string} </span>
+            <span className={styles["del"]} onClick={_ => del(id)}> {`删除`->React.string} </span>
           </span>
         </div>
       })
       ->React.array}
     </div>
+  }
 }
 
 @react.component
